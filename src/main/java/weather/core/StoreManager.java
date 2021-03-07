@@ -29,6 +29,10 @@ public class StoreManager {
             fileWriter.write(json);
             fileWriter.flush();
         }
+        try (FileWriter fileWriter = new FileWriter("update.txt")) {
+            fileWriter.write("" + System.currentTimeMillis());
+            fileWriter.flush();
+        }
     }
 
     public void storeTimeWeather(TimeWeather weather) throws IOException {
