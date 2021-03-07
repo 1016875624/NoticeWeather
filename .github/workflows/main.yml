@@ -16,7 +16,7 @@ on:
     - cron: "42 22 * * *" # 删除本行开头的 # 号
   push:
     branches:
-     - run
+     - main
     
 
   # Allows you to run this workflow manually from the Actions tab
