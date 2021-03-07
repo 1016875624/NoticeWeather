@@ -49,6 +49,7 @@ jobs:
       - name: Commit Files
         run: |
           echo update >> update.txt
+          echo update >> update.txt
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
