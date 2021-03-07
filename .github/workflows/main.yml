@@ -13,8 +13,7 @@ name: CI
 on:
   schedule: # 删除本行开头的 # 号
     - cron: "50 6 * * *" # 删除本行开头的 # 号
-    - cron: "42 22 * * *" # 删除本行开头的 # 号
-    - cron: "11 30 * * *"
+    - cron: "42 22 * * *" # 删除本行开头的 #
   push:
     branches:
      - main
