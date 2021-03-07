@@ -10,7 +10,7 @@ name: CI
 #   pull_request:
 #     branches: [ main ]
 
-# on:
+ on:
 #   schedule: # 删除本行开头的 # 号
 #     - cron: "50 6 * * *" # 删除本行开头的 # 号
 #   push:
