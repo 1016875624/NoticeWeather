@@ -48,6 +48,7 @@ public class WeatherChangeNotice {
                 ioException.printStackTrace();
             }
             e.printStackTrace();
+//            e.printStackTrace();
         }
         return null;
     }
