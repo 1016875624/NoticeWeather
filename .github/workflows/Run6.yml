@@ -32,7 +32,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+      
+      - name: checkoutBranch
+        run: git checkout run
+          
       # Runs a single command using the runners shell
       - name: compile
         env:
@@ -48,8 +51,14 @@ jobs:
         run: mvn exec:java -Dexec.mainClass="runner.GetNowWeatherRunner"
       - name: Commit Files
         run: |
+          git checkout run
           echo update >> update.txt
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
           git commit -m "已执行"
+          # 此处的 ${{ secrets.GITHUB_TOKEN }} 是 Actions 自有变量，不用管
+      - name: GitHub Push
+        uses: ad-m/github-push-action@v0.5.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
