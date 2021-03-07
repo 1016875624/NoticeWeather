@@ -10,12 +10,12 @@ name: CI
 #   pull_request:
 #     branches: [ main ]
 
-on:
-  schedule: # 删除本行开头的 # 号
-    - cron: "50 6 * * *" # 删除本行开头的 # 号
-  push:
-    branches:
-     - main
+# on:
+#   schedule: # 删除本行开头的 # 号
+#     - cron: "50 6 * * *" # 删除本行开头的 # 号
+#   push:
+#     branches:
+#      - main
     
 
   # Allows you to run this workflow manually from the Actions tab
