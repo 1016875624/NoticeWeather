@@ -22,16 +22,16 @@ public class TimeWeather {
     /** 5摄氏度就是变化大*/
     int degree = 5;
     public boolean isTempChange(TimeWeather timeWeather) {
-        detaTemp = now.temp.subtract(timeWeather.now.temp);
-        return detaTemp.abs().compareTo(new BigDecimal(degree)) > 0;
+        dataTemp = now.temp.subtract(timeWeather.now.temp);
+        return dataTemp.abs().compareTo(new BigDecimal(degree)) > 0;
     }
     public boolean isFeelChange(TimeWeather timeWeather) {
-        detaFeel = now.feelsLike.subtract(timeWeather.now.feelsLike);
-        return detaFeel.abs().compareTo(new BigDecimal(degree)) > 0;
+        dataFeel = now.feelsLike.subtract(timeWeather.now.feelsLike);
+        return dataFeel.abs().compareTo(new BigDecimal(degree)) > 0;
     }
 
-    BigDecimal detaTemp;
-    BigDecimal detaFeel;
+    private BigDecimal dataTemp;
+    private BigDecimal dataFeel;
 
     public boolean isRainChange() {
         return now.text.contains("雨");
