@@ -16,4 +16,10 @@ public class PathManager {
         return String.format("TimeWeather%s.json", date);
     }
 
+    public String getYesterdayWeatherPath() {
+        LocalDate yesterday = LocalDate.now().minusDays(1);
+        String date = yesterday.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+        return String.format("TimeWeather%s.json", date);
+    }
+
 }

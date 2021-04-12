@@ -16,11 +16,40 @@ public class WeatherChangeNotice {
     NoticeManager noticeManager = new NoticeManager();
     PushManager pushManager = new PushManager();
     PathManager pathManager = new PathManager();
+//    public void noticeWeather() {
+//        TimeWeather weather = null;
+//        boolean need = true;
+//        try {
+//            weather = storeManager.loadTimeWeather();
+//            TimeWeather nowWeather = getNowWeather();
+//            if (weather != null) {
+//                need = noticeManager.needNotice(weather, nowWeather);
+//            }
+//            if (need) {
+//                pushManager.pushServerJiang(nowWeather, noticeManager.getNoticeTitle(weather, nowWeather), parameterManager.getPushKey());
+//            }
+//            storeManager.storeTimeWeather(nowWeather);
+//            if (storeManager.loadTimeWeather(pathManager.getDateWeatherPath()) == null) {
+//                storeManager.storeTimeWeather(pathManager.getDateWeatherPath(), nowWeather);
+//            }
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
     public void noticeWeather() {
+        // 实时提醒
+        noticeWeather(pathManager.getTimeWeatherPath());
+        // 按天提醒
+        noticeWeather(pathManager.getDateWeatherPath());
+    }
+    public void noticeWeather(String path) {
         TimeWeather weather = null;
         boolean need = true;
         try {
-            weather = storeManager.loadTimeWeather();
+            weather = storeManager.loadTimeWeather(path);
             TimeWeather nowWeather = getNowWeather();
             if (weather != null) {
                 need = noticeManager.needNotice(weather, nowWeather);
