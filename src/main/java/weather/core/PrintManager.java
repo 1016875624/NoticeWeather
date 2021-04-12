@@ -12,6 +12,6 @@ public class PrintManager {
         return String.format(template, weather.getNow().getTemp(),
                 weather.getNow().getFeelsLike(),
                 weather.getNow().getText(),
-                weather.getDetaTemp(), weather.getDetaFeel());
+                weather.getDataTemp(), weather.getDataFeel());
     }
 }
