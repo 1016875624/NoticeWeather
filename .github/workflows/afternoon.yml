@@ -12,12 +12,7 @@ name: CI
 
 on:
   schedule: # 删除本行开头的 # 号
-    - cron: "50 6 * * *" # 删除本行开头的 # 号
-    - cron: "42 22 * * *" # 删除本行开头的 #
-  push:
-    branches:
-     - main
-
+    - cron: "30 11 * * *" # 删除本行开头的 #
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -50,8 +45,6 @@ jobs:
         run: mvn exec:java -Dexec.mainClass="runner.GetNowWeatherRunner"
       - name: Commit Files
         run: |
-          echo update >> update.txt
-          echo update >> update.txt
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
